@@ -12,7 +12,7 @@ module ApplicationHelper
   def shift_length(stime, etime)
     TimeDifference.between(stime,etime).in_hours
   end
-  
+
   def flash_class(level)
       case level
           when :notice then "alert alert-info"
@@ -37,6 +37,10 @@ module ApplicationHelper
     content_tag(:span, str, class: "success")
   end
 
-  
+  def plain_time(t)
+    content_tag(:span, t.to_s(:custom_datetime))
+  end
+
+
 end
 

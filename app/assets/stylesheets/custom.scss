@@ -21,3 +21,20 @@ body{padding-top:60px;}
   text-align:center;
 
 }
+.employee-list
+{
+	height:100px
+}
+.employee-list-item{
+	margin-bottom:40px;
+	list-style-type:none;
+	li{
+		padding-left:8px;
+	}
+}
+.employee-list-even{
+background: #f9f9f9f;
+}
+.employee-list-odd{
+	background :#e0e4cc
+}

@@ -7,7 +7,6 @@ end
 
 
 gem 'autoprefixer-rails'
-
 gem 'cancancan'
 gem 'simple_form'
 gem 'rolify'

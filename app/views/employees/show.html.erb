@@ -39,4 +39,13 @@
     <% end %>
   </tbody>
 </table>
+<div id="" "style=overflow-y:scroll; overflow-x:hidden; height:200px;">
+		<ul class="employee-list-item">
+		<% current_user.offs.each do |off| %>
+			<li class="<%= cycle("employee-list-odd", "employee-list-even") %>">
+				<%= plain_time(off.start_time) %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 
