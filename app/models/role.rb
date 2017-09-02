@@ -10,4 +10,6 @@ class Role < ApplicationRecord
             :allow_nil => true
 
   scopify
+  #user = User.first
+  #user.add_role :admin
 end
