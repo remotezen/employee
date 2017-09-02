@@ -1,0 +1,29 @@
+<%= simple_form_for(@event, html: {class: 'form-horizontal' }) do |f| %>
+
+  <%# render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.select :name,  User.normal_user.collect{|u|[u.name]}%>
+  </div>
+  <div class="form-group">
+    <%= f.label :job %>
+    <%= f.select :job,  @skills%>
+  </div>
+
+  <div class="form-group event-tooltip" >
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time, id: :event_start_time , class: 'f-control'
+   %>
+  </div>
+  <div class="form-group event-tooltip" >
+    <%= f.label :end_time %>
+    <%= f.datetime_select :end_time, id: :event_end_time , class: 'f-control'
+   %>
+  </div>
+
+
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

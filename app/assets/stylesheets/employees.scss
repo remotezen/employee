@@ -1,0 +1,34 @@
+// Place all the styles related to the employees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$text-color:#669999;
+$text-color-pink:#CF649A;
+.employee_info{
+  background-color: #f9f9f9;
+  border: 1px solid #111;
+  padding: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  h1{
+    color:$text-color-pink;
+  }
+  h6{color:$text-color;}
+}
+.table_employee_info{
+  color: $text-color;
+}
+.calendar-list li{
+  font-size:1.2em;
+  a{
+    color:$text-color-pink;
+    font-size:1.2em;
+  }
+
+}
+.table.table-striped th{
+  border: 1px black solid;
+  color:$text-color-pink;
+}

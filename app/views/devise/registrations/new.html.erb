@@ -1,0 +1,56 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, class:'form-horizonal', url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :name%><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" ,class:'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cash, class:"checkbox-inline" %>
+    <%= f.check_box(:cashier) %>
+    <%= f.label :grill, class:"checkbox-inline" %>
+    <%= f.check_box(:grill) %>
+    <%= f.label :line, class:"checkbox-inline" %>
+    <%= f.check_box(:line) %>
+    <%= f.label :juice, class:"checkbox-inline" %>
+    <%= f.check_box(:juice) %>
+    <%= f.label :baking, class:"checkbox-inline" %>
+    <%= f.check_box(:baking) %>
+    <%= f.label :press, class:"checkbox-inline" %>
+    <%= f.check_box(:coldpress) %>
+    <%if user_signed_in?%> 
+      <%if current_user.has_role? :superadmin %>
+        <%= f.label :supervisor, class:"checkbox-inline" %>
+        <%= f.check_box(:supervisor) %>
+      <%end%>
+    <%end%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-large' %>
+  </div>
+
+  
+<% end %>
+
+<%= render "devise/shared/links" %>

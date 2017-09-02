@@ -1,0 +1,42 @@
+<div class="employee_info">
+  <h1>
+    <%= @employee.name %>
+  </h1>
+  <h6>
+    <%= @employee.email%>
+    Total Absences
+    <code>
+      <%=@employee.offs.count%>
+    </code>
+  </h6>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>job</th>
+      <th>shift length</th>
+    </tr>
+  </thead>
+  <tbody class="table_employee_info">
+ <% @employee.events.each do |e| %>
+    <tr>
+      <td>
+        <%= e.start_time.to_s(:custom_datetime) %>
+      </td>
+      <td>
+        <%= e.end_time.to_s(:custom_datetime) %>
+      </td>
+      </td>
+      <td>
+        <%= e.job%>
+      </td>
+      <td>
+        <%= shift_length(e.start_time, e.end_time)%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

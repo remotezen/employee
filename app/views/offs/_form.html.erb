@@ -1,0 +1,32 @@
+<%= form_with(model: off, local: true, class: 'form-horizontal') do |form| %>
+  <% if off.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(off.errors.count, "error") %> prohibited this off from being saved:</h2>
+
+      <ul>
+      <% off.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :start_time %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time, id: :end_time %>
+  </div>
+  <div class="form-group">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

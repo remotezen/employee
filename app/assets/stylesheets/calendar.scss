@@ -1,0 +1,63 @@
+@import 'colorvars';
+$text-color:#669999;
+$text-color-pink:#CF649A;
+@mixin circle{
+    background: #f00;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align:center;
+    display:table-cell;
+    vertical-align:middle;
+}
+@mixin pborder{
+  border: $light-grey 1px solid;
+}
+.calendar-list{
+  font-size:0.6em;
+}
+td {
+    .wday{border: 1px solid black;}
+    .month-day{
+  }
+  ul{
+    list-style:none;
+    text-align:left;
+    border-bottom: 2px solid $lightest-blue;
+    margin-bottom:8px;
+    li{
+      margin:4px;      
+      text-align:center;
+      border-right:1px dotted $light-grey;
+    }
+
+  }
+}
+table, td{
+  text-align:left;
+}
+table, tr{
+  border: solid $light-grey 1px;
+  background:$lightest-green
+}
+
+.real-time{
+  font-style:bold;
+  color:blue;
+
+}
+.time-header{
+  font-style:italic;
+}
+.name-in-list{
+  background:#eee;
+  color:#444;
+  font-family:arial;
+}
+.last-table-list{
+  background: #eee;
+}
+.day{
+  border: 1px solid ;
+  color:$text-color;
+}

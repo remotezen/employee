@@ -1,0 +1,50 @@
+<h3>Month</h3>
+
+<%=month_calendar  events: @events do |date,events| %>
+  <p class="month-day">
+    <%= date.day %>
+   </p>
+  <% events.each do |event| %>
+    <ul class="calendar-list">
+      <li>
+        job: 
+        <span class="job-in-list">
+          <%= event.job %>
+        </span>
+      </li>
+      <li>
+        name:
+        <span class="name-in-list">
+          <%= event.name %>
+        </span>
+      </li>
+      <li>
+        <span class="time-header">
+          start :
+        </span>
+
+        <span class="real-time">
+          <%=rTime(event.start_time)%>
+        </span>
+      </li>
+      <li class="last-table-list">
+        <span class="time-header">
+          end :
+        </span>
+        <span class="real-time">
+           <%=rTime(event.end_time)%>
+        </span>
+      </li>
+      <% if current_user.has_role? :admin %>
+      <li>
+        <%= link_to "delete", event_path(event.id), method: :delete %>
+        <%= link_to "edit", edit_event_path(event.id)%>
+        <%= link_to "new", new_event_path%>
+      </li>
+    <% end %>
+    <li>
+      <a href="/events.pdf">this months pdf</a>
+    </li>
+    </ul>
+    <% end %>
+<% end %>
