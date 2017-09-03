@@ -1,4 +1,4 @@
-<div class="employee_info">
+<div class="employee-info">
   <h1>
     <%= @employee.name %>
   </h1>
@@ -19,7 +19,8 @@
       <th>shift length</th>
     </tr>
   </thead>
-  <tbody class="table_employee_info">
+
+<tbody id="" class="table_employee_info" style="overflow-y:scroll; overflow-x:hidden; height:200px;">
  <% @employee.events.each do |e| %>
     <tr>
       <td>
