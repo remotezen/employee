@@ -10,9 +10,13 @@
     </code>
   </h6>
 </div>
+<%= render partial: 'events/event_header' %>
+
 	<div class=" col-md-12 employee-list-container employee-list-item" >
 			<%= render partial: 'employees/employee_event', collection: @employee.events, as: :item %>
 	</div>
+  <br>
+  <%= render partial: 'events/absent_header' %>
 	<div class=" col-md-12 employee-list-container employee-list-item" >
 			<%= render partial: 'employees/employee_off',  
 				collection: current_user.offs, as: :item %>

@@ -1,10 +1,10 @@
 <div class="row employee-item
-	<%= cycle("employee-list-odd", "employee-list-even") %>">
+	<%= cycle("employee-list-odd", "employee-list-even") %> ">
 	<div class="col-md-3">
-		<%= item.start_time.to_s(:custom_datetime) %>
+		<%= item.start_time.to_s(:hour_datetime) %>
 	</div>
 	<div class="col-md-3">
-		<%= item.end_time.to_s(:custom_datetime) %>
+		<%= item.end_time.to_s(:hour_datetime) %>
 	</div>
 	<div class="col-md-3">
 		<%= shift_length(item.start_time, item.end_time)%>
