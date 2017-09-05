@@ -35,8 +35,22 @@ body{padding-top:60px;}
 	}
 }
 .employee-list-even{
-background: #f9f9f9f;
+	color: #66A2BD;
+	background: #f9f9f9f;
 }
 .employee-list-odd{
-	background :#e0e4cc
+	background :#e0e4cc;
+  color:#CF649A;
+}
+.employee-item {
+	padding: 4px;
+	text-align:center;
+}
+.employee-list-container {
+	height:200px;
+	text-align:center;
+	overflow-y: scroll;
+	width:100%;
+	overflow-x:hidden;
+
 }

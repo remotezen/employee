@@ -10,43 +10,11 @@
     </code>
   </h6>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>job</th>
-      <th>shift length</th>
-    </tr>
-  </thead>
-
-<tbody id="" class="table_employee_info" style="overflow-y:scroll; overflow-x:hidden; height:200px;">
- <% @employee.events.each do |e| %>
-    <tr>
-      <td>
-        <%= e.start_time.to_s(:custom_datetime) %>
-      </td>
-      <td>
-        <%= e.end_time.to_s(:custom_datetime) %>
-      </td>
-      </td>
-      <td>
-        <%= e.job%>
-      </td>
-      <td>
-        <%= shift_length(e.start_time, e.end_time)%>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<div id="" "style=overflow-y:scroll; overflow-x:hidden; height:200px;">
-		<ul class="employee-list-item">
-		<% current_user.offs.each do |off| %>
-			<li class="<%= cycle("employee-list-odd", "employee-list-even") %>">
-				<%= plain_time(off.start_time) %>
-		</li>
-		<% end %>
-	</ul>
+	<div class=" col-md-12 employee-list-container employee-list-item" >
+			<%= render partial: 'employees/employee_event', collection: @employee.events, as: :item %>
+	</div>
+	<div class=" col-md-12 employee-list-container employee-list-item" >
+			<%= render partial: 'employees/employee_off',  
+				collection: current_user.offs, as: :item %>
 </div>
 

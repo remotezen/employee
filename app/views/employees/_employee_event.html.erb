@@ -1,0 +1,15 @@
+<div class="row employee-item
+	<%= cycle("employee-list-odd", "employee-list-even") %>">
+	<div class="col-md-3">
+		<%= item.start_time.to_s(:custom_datetime) %>
+	</div>
+	<div class="col-md-3">
+		<%= item.end_time.to_s(:custom_datetime) %>
+	</div>
+	<div class="col-md-3">
+		<%= shift_length(item.start_time, item.end_time)%>
+	</div>
+	<div class="col-md-3">
+		<%= item.job%>
+	</div>
+</div>
