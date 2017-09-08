@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action  :set_events 
+  before_action  :set_events
   before_action :set_user, only: [:create]
   before_action :set_event, except: [:index, :new, :create]
   before_action :letin
@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   load_and_authorize_resource
   include Eventable
 
- 
+
 
   # GET /events
   # GET /events.json
@@ -38,8 +38,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    
-    bool = false 
+
+    @bool = false
     data = clean_date_time
     if data.size > 0
     #abort data.inspect
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
         data.each do |attrs|
           exit_plan if attrs[:start_time] >= attrs[:end_time]
           if worker.add(attrs)
-           bool = true
+           @bool = true
           end
         end
       end
@@ -55,7 +55,8 @@ class EventsController < ApplicationController
       u = @user.events.build(event_params)
       respond_to do |format|
         if u.save?
-          format.html { redirect_to root_url, notice: 'Event was successfully created.' }
+          format.html { redirect_to root_url,
+                        notice: 'Event was successfully created.' }
           format.json { head :no_content }
         else
           format.html { render :new }
@@ -92,7 +93,7 @@ class EventsController < ApplicationController
   def exit_plan
     flash[:error] = "shift start can't be in the future of shift end"
     respond_to do |format|
-      format.html { redirect_to new_event_url}  
+      format.html { redirect_to new_event_url}
      end
   end
 
@@ -112,7 +113,7 @@ class EventsController < ApplicationController
       @events = Event.top
     end
 
-    
+
 
 
 
@@ -120,12 +121,14 @@ class EventsController < ApplicationController
     def set_users
       @users = User.all
     end
-    
+
     def event_params
-      params.require(:event).permit(:name, 
+      params.require(:event).permit(:name,
                     :job, :start_time, :end_time, :user_id)
     end
-    
+    def bool?
+      @bool == true
+    end
 
-    
+
 end
