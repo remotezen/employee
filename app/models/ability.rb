@@ -8,7 +8,7 @@ class Ability
        alias_action :create, :read, :update, :destroy, to: :crud
       
        if user.has_role? :admin
-         can :manage, User
+         can :crud, User
          can :manage, Event
          can :access, :rails_admin
          can :dashboard
@@ -23,9 +23,9 @@ class Ability
        if user.has_role? :user
          can :get, Event 
          can [:read], Event
-         can [:edit,:update,:show]
+         can [:edit,:update,:show], User
        else
-         can [:read, :write], User 
+         can [:create], User 
        end
     #     can :read, :all
     #   end
