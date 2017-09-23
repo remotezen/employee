@@ -23,7 +23,6 @@ gem 'momentjs-rails'
 gem 'jquery-ui-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
 gem 'simple_calendar'
 
 

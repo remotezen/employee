@@ -7,33 +7,7 @@
   <% events.each do |event| %>
     <ul class="calendar-list">
       <li>
-        job: 
-        <span class="job-in-list">
-          <%= event.job %>
-        </span>
-      </li>
-      <li>
-        name:
-        <span class="name-in-list">
-          <%= event.name %>
-        </span>
-      </li>
-      <li>
-        <span class="time-header">
-          start :
-        </span>
-
-        <span class="real-time">
-          <%=rTime(event.start_time)%>
-        </span>
-      </li>
-      <li class="last-table-list">
-        <span class="time-header">
-          end :
-        </span>
-        <span class="real-time">
-           <%=rTime(event.end_time)%>
-        </span>
+				<%= link_to event.user.name, employee_path(event.user.id) %>
       </li>
       <% if current_user.has_role? :admin %>
       <li>

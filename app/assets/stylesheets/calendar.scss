@@ -14,7 +14,9 @@ $text-color-pink:#CF649A;
   border: $light-grey 1px solid;
 }
 .calendar-list{
-  font-size:0.6em;
+li>a{
+		font-size:0.6em;
+	}
 }
 td {
     .wday{border: 1px solid black;}
