@@ -1,4 +1,9 @@
 <h3>Month</h3>
+<% current_user.roles.each do |role| %>
+	<%= role.name %>
+<% end %>
+
+
 
 <%=month_calendar  events: @events do |date,events| %>
   <p class="month-day">
